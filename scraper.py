@@ -187,5 +187,4 @@ class Scraper:
 
         if limit != None:
             results = results[:limit]
-        print(item_types.keys())
         return results
