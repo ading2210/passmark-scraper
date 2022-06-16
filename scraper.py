@@ -60,7 +60,6 @@ class Scraper:
         return self.items
 
     #get every item in the database, sorted by a specific critiera
-    #valid values for 
     def get_sorted_list(self, sort_by="rank", order="descending", limit=None, item_type=None):
         results = []
 
