@@ -1,6 +1,6 @@
 # Passmark Database Scraper
 
-This library can scrape the Passmark websites in order to fetch various benchmark results. It can sort the benchmark results based on varius critera, such as the score, rank, and the value of the part. It can also search through the listings for a specific search query. Additionally, this uses no external libraries.  
+This Python library can scrape the Passmark websites in order to fetch various benchmark results. It can sort the benchmark results based on varius critera, such as the score, rank, and the value of the part. It can also search through the listings for a specific search query. Additionally, this uses no external libraries outide of the ones included in Python.  
 
 The websites that this program can scrape are:
  - cpubenchmark.net
@@ -9,7 +9,7 @@ The websites that this program can scrape are:
 
 ## Usage:
 
-To use this, just download scraper.py and put it inside the same directory as your Python program. 
+To use this, just download scraper.py and put it inside the same directory as your Python program.
 
 Example usage:
 ```python
@@ -51,13 +51,13 @@ scraper = scraper = Scraper("www.videocardbenchmark.net")
 
 ### Getting all items:
 
-You can get all the items in the database using `Scraper.items`.
+You can get all the items in the database using `Scraper.items`. This returns a list containing all the results. 
 
 If you want to refresh the cached results, use `Scraper.scrape()`.
 
 ### Searching through the results:
 
-Simply use `Scraper.search(query)`. Optionally, you can use the `limit` argument to limit the number of results returned. 
+Simply use `Scraper.search(query)`. Optionally, you can use the `limit` argument to limit the number of results returned. This returns a list containing the results of your search. Note that this won't refresh the cached items. You'll have to use `Scraper.scrape()` to refresh it. 
 
 ### Sorting the results:
 
@@ -72,6 +72,8 @@ Optional arguments:
  - `order`: can either be "ascending" or "descending"
  - `limit`: an int, limits the amount of results returned
  - `item_type`: forces a specific value type. Valid values are: `['string', 'number', 'bool', 'size', 'speed', 'date']`
+
+This returns a list containing all the results, sorted using the specified critera. This also doesn't refresh the cache. 
 
 ### Getting a specific item based on its id:
 
