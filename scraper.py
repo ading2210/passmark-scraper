@@ -189,10 +189,3 @@ class Scraper:
             results = results[:limit]
         print(item_types.keys())
         return results
-
-if __name__ == "__main__":
-    scraper = Scraper("www.harddrivebenchmark.net")
-    #results = scraper.search(query="rtx 3090", limit=10)
-    results = scraper.get_sorted_list(sort_by="value", order="descending", limit=20)
-    for result in results:
-      print(result[1], "| ", result[0]["name"])
