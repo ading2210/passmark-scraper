@@ -1,6 +1,6 @@
 # Passmark Database Scraper
 
-This library can scrape the Passmark websites in order to fetch various benchmark results. It can sort the benchmark results based on varius critera, such as the score, rank, and the value of the part. It can also search through the listings for a specific search query. 
+This library can scrape the Passmark websites in order to fetch various benchmark results. It can sort the benchmark results based on varius critera, such as the score, rank, and the value of the part. It can also search through the listings for a specific search query. This also uses no other libaries outside of the default Python ones. 
 
 The websites that this program can scrape are:
  - cpubenchmark.net
