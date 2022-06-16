@@ -1,4 +1,4 @@
-## Passmark Database Scraper
+# Passmark Database Scraper
 
 This library can scrape the Passmark websites in order to fetch various benchmark results. It can sort the benchmark results based on varius critera, such as the score, rank, and the value of the part. It can also search through the listings for a specific search query. 
 
@@ -7,7 +7,7 @@ The websites that this program can scrape are:
  - videocardbenchmark.net
  - harddrivebenchmark.net
 
-### Usage:
+## Usage:
 
 To use this, just download scraper.py and put it inside the same directory as your Python program. 
 
@@ -29,11 +29,11 @@ for result in sorted_results:
     print(result[1], "| ", result[0]["name"])
 ```
 
-### Documentation:
+## Documentation:
 
-### The Scraper object:
+### The Scraper class:
 
-To create it, specifiy the domain that you want to get data from. 
+To use it, specifiy the domain that you want to get data from. All the other functions are contained inside this class.
 
 Valid values:
  - `www.cpubenchmark.net` (default)
@@ -49,17 +49,17 @@ from scraper import scraper
 scraper = scraper = Scraper("www.videocardbenchmark.net")
 ```
 
-#### Getting all items:
+### Getting all items:
 
 You can get all the items in the database using `Scraper.items`.
 
 If you want to refresh the cached results, use `Scraper.scrape()`.
 
-#### Searching through the results:
+### Searching through the results:
 
 Simply use `Scraper.search(query)`. Optionally, you can use the `limit` argument to limit the number of results returned. 
 
-#### Sorting the results:
+### Sorting the results:
 
 You can sort the items using `Scraper.get_sorted_list(sort_by=critera)`.
 
@@ -73,6 +73,6 @@ Optional arguments:
  - `limit`: an int, limits the amount of results returned
  - `item_type`: forces a specific value type. Valid values are: `['string', 'number', 'bool', 'size', 'speed', 'date']`
 
-#### Getting a specific item based on its id:
+### Getting a specific item based on its id:
 
 You can get a specific item using `Scraper.get_item(item_id)`.
