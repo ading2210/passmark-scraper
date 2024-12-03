@@ -46,6 +46,8 @@ class Scraper:
     def scrape(self):
         session = requests.Session()
         headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",#Header to mimic a browser request
+            "Accept-Language": "en-US,en;q=0.9",
             "referrer": self.url,
             "x-requested-with": "XMLHttpRequest",
             "accept": "application/json, text/javascript, */*; q=0.01",
@@ -143,14 +145,14 @@ class Scraper:
                 if type(value) is int or type(value) is float:
                     results.append([item, float(value)])
                 else:
-                    result = re.sub("[^0123456789\.]", "", value)
+                    result = re.sub(r"[^0123456789\.]", "", value)
                     if len(result) > 0:
                         results.append([item, float(result)])
             elif item_type == "bool":
                 results.append([item, int(value)])
             elif item_type == "size":
                 number, unit = value.split(" ")[:2]
-                number = re.sub("[^0123456789\.]", "", number)
+                number = re.sub(r"[^0123456789\.]", "", number)
                 if len(number) > 0:
                     number = float(number)
                     units = ["kb", "mb", "gb", "tb", "pb"]
@@ -159,7 +161,7 @@ class Scraper:
                     results.append([item, int(number)])
             elif item_type == "speed":
                 number, unit = value.split(" ")[:2]
-                number = re.sub("[^0123456789\.]", "", number)
+                number = re.sub(r"[^0123456789\.]", "", number)
                 if len(number) > 0:
                     number = float(number)
                     units = ["khz", "mhz", "ghz"]
