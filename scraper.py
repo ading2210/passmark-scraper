@@ -91,7 +91,7 @@ class Scraper:
             if len(matches) > 0:
                 results.append((item, len(matches)))
 
-        #sort to get the most relavent results on top
+        #sort to get the most relevant results on top
         results = sorted(results, key=lambda x: x[1], reverse=True)
 
         if limit != None:
@@ -126,11 +126,11 @@ class Scraper:
             print(f"Scraped {len(self.items)} items.")
         except Exception as e:
             print("Error during scraping:", e)
-            self.items = []  # Ensure items is an empty list if scraping fails 
+            self.items = []  # Ensure items are an empty list if scraping fails 
         
         return self.items
 
-    #get every item in the database, sorted by a specific critiera
+    #get every item in the database, sorted by specific criteria
     def get_sorted_list(self, sort_by="rank", order="descending", limit=None, item_type=None):
         results = []
 
