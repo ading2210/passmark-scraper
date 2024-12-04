@@ -152,14 +152,14 @@ class Scraper:
                 if type(value) is int or type(value) is float:
                     results.append([item, float(value)])
                 else:
-                    result = re.sub(r"[^0123456789\.]", "", value)#Raw String Required to not cause Escape Sequence
+                    result = re.sub(r"[^0123456789\.]", "", value)
                     if len(result) > 0:
                         results.append([item, float(result)])
             elif item_type == "bool":
                 results.append([item, int(value)])
             elif item_type == "size":
                 number, unit = value.split(" ")[:2]
-                number = re.sub(r"[^0123456789\.]", "", number) #Raw String Required to not cause Escape Sequence
+                number = re.sub(r"[^0123456789\.]", "", number)
                 if len(number) > 0:
                     number = float(number)
                     units = ["kb", "mb", "gb", "tb", "pb"]
@@ -168,7 +168,7 @@ class Scraper:
                     results.append([item, int(number)])
             elif item_type == "speed":
                 number, unit = value.split(" ")[:2]
-                number = re.sub(r"[^0123456789\.]", "", number)#Raw String Required to not cause Escape Sequence
+                number = re.sub(r"[^0123456789\.]", "", number)
                 if len(number) > 0:
                     number = float(number)
                     units = ["khz", "mhz", "ghz"]
@@ -197,7 +197,7 @@ class Scraper:
             results = results[:limit]
         return results
     
-    def filter_and_sort(
+    def advanced_search(
         self, 
         filters=None, 
         sort_by=None, 
